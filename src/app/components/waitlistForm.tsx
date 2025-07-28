@@ -40,7 +40,7 @@ export default function WaitlistForm () {
           />
           <button
             type="submit"
-            className="bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium"
+            className="bg-[#66afb5] text-white py-3 rounded-lg hover:bg-[#5a9ea3] transition-colors duration-200 font-medium"
           >
             Join
           </button>
