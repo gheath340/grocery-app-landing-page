@@ -4,14 +4,13 @@ import { useState, FormEvent } from 'react';
 
 export default function WaitlistForm () {
   const [email, setEmail] = useState('');
-  const [name, setName] = useState('');
   const [message, setMessage] = useState('');
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     setMessage('');
 
-    const res = await fetch('/api/waitlist', {
+    const res = await fetch('/api/grocery_app_waitlist', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, name }),
@@ -22,7 +21,6 @@ export default function WaitlistForm () {
     if (res.ok) {
       setMessage('Thanks for joining the waitlist!');
       setEmail('');
-      setName('');
     } else {
       setMessage(data.error || 'Something went wrong.');
     }
@@ -39,13 +37,6 @@ export default function WaitlistForm () {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-          />
-          <input
-            type="text"
-            placeholder="Your name (optional)"
-            className="border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/90 backdrop-blur-sm"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
           />
           <button
             type="submit"

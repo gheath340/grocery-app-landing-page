@@ -16,6 +16,7 @@ export default function Navbar() {
       if (currentScrollY > lastScrollY && currentScrollY > 50) {
         // Scrolling down & past top
         setShowNavbar(false);
+        setIsOpen(false); // Close the menu when navbar disappears
       } else {
         // Scrolling up
         setShowNavbar(true);
@@ -53,14 +54,17 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Nav Links */}
-          <div className="hidden md:flex space-x-6">
-            <Link href="#features" className="text-gray-700 hover:text-blue-600">
+          <div className="hidden md:flex space-x-6 items-center">
+            <Link href="#features" className="text-black hover:text-blue-600">
               Features
             </Link>
-            <Link href="#pricing" className="text-gray-700 hover:text-blue-600">
+            <Link href="#pricing" className="text-black hover:text-blue-600">
               Pricing
             </Link>
-            <Link href="#waitlist" className="text-gray-700 hover:text-blue-600">
+            <Link
+              href="#waitlist"
+              className="bg-[#66afb5] text-white px-4 py-2 rounded-lg shadow-md hover:bg-[#5a9ea3] hover:shadow-lg transition-all duration-300"
+            >
               Join Waitlist
             </Link>
           </div>
@@ -69,7 +73,7 @@ export default function Navbar() {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700 hover:text-blue-600 focus:outline-none"
+              className="text-black hover:text-blue-600 focus:outline-none"
             >
               {isOpen ? (
                 <svg
@@ -106,33 +110,35 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Nav Menu */}
-      {isOpen && (
-        <div className="md:hidden bg-white border-t border-gray-200">
-          <div className="px-4 py-3 space-y-2">
-            <Link
-              href="#features"
-              className="block text-gray-700 hover:text-blue-600"
-              onClick={() => setIsOpen(false)}
-            >
-              Features
-            </Link>
-            <Link
-              href="#pricing"
-              className="block text-gray-700 hover:text-blue-600"
-              onClick={() => setIsOpen(false)}
-            >
-              Pricing
-            </Link>
-            <Link
-              href="#waitlist"
-              className="block text-gray-700 hover:text-blue-600"
-              onClick={() => setIsOpen(false)}
-            >
-              Join Waitlist
-            </Link>
-          </div>
+      <div
+        className={`md:hidden bg-white border border-gray-200 overflow-hidden transition-all duration-300 ${
+          isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        }`}
+      >
+        <div className="px-4 py-3 space-y-2">
+          <Link
+            href="#features"
+            className="block text-black hover:text-blue-600"
+            onClick={() => setIsOpen(false)}
+          >
+            Features
+          </Link>
+          <Link
+            href="#pricing"
+            className="block text-black hover:text-blue-600"
+            onClick={() => setIsOpen(false)}
+          >
+            Pricing
+          </Link>
+          <Link
+            href="#waitlist"
+            className="inline-block bg-[#66afb5] text-white px-4 py-2 rounded-lg shadow-md hover:bg-[#5a9ea3] hover:shadow-lg transition-all duration-300"
+            onClick={() => setIsOpen(false)}
+          >
+            Join Waitlist
+          </Link>
         </div>
-      )}
+      </div>
     </nav>
   );
 }

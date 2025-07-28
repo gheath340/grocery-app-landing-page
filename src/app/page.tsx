@@ -8,7 +8,7 @@ export default function Home() {
 
   return (
     // style={{ backgroundImage: "url('/bg1.jpg')" }}
-     <div className="min-h-screen bg-cover bg-center bg-no-repeat">
+     <div className="min-h-screen bg-white bg-cover bg-center bg-no-repeat">
       <section className="relative w-full">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-25 flex flex-col lg:flex-row items-center lg:justify-between">
           {/* LEFT TEXT SECTION */}
@@ -29,8 +29,6 @@ export default function Home() {
             <Image src="/app-mockup.jpg" alt={''} width={250} height={500} />
           </div>
         </div>
-        {/* OPTIONAL BACKGROUND ACCENT */}
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-white via-gray-50 to-[#f0fafa]" />
       </section>
     </div>
   );
