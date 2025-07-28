@@ -54,13 +54,7 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Nav Links */}
-          <div className="hidden md:flex space-x-6 items-center">
-            <Link href="#features" className="text-black hover:text-blue-600">
-              Features
-            </Link>
-            <Link href="#pricing" className="text-black hover:text-blue-600">
-              Pricing
-            </Link>
+          <div className="md:flex space-x-6 items-center">
             <Link
               href="#waitlist"
               className="bg-[#66afb5] text-white px-4 py-2 rounded-lg shadow-md hover:bg-[#5a9ea3] hover:shadow-lg transition-all duration-300"
@@ -68,77 +62,9 @@ export default function Navbar() {
               Join Waitlist
             </Link>
           </div>
-
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-black hover:text-blue-600 focus:outline-none"
-            >
-              {isOpen ? (
-                <svg
-                  className="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              ) : (
-                <svg
-                  className="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16m-7 6h7"
-                  />
-                </svg>
-              )}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Nav Menu */}
-      <div
-        className={`md:hidden bg-white border border-gray-200 overflow-hidden transition-all duration-300 ${
-          isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-        }`}
-      >
-        <div className="px-4 py-3 space-y-2">
-          <Link
-            href="#features"
-            className="block text-black hover:text-blue-600"
-            onClick={() => setIsOpen(false)}
-          >
-            Features
-          </Link>
-          <Link
-            href="#pricing"
-            className="block text-black hover:text-blue-600"
-            onClick={() => setIsOpen(false)}
-          >
-            Pricing
-          </Link>
-          <Link
-            href="#waitlist"
-            className="inline-block bg-[#66afb5] text-white px-4 py-2 rounded-lg shadow-md hover:bg-[#5a9ea3] hover:shadow-lg transition-all duration-300"
-            onClick={() => setIsOpen(false)}
-          >
-            Join Waitlist
-          </Link>
         </div>
       </div>
     </nav>
   );
 }
+

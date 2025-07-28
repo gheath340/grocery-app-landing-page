@@ -1,10 +1,39 @@
 'use client';
 
-import { useState, FormEvent } from 'react';
+import { useState, FormEvent, useEffect } from 'react';
 
-export default function WaitlistForm () {
+export default function WaitlistForm() {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [userCount, setUserCount] = useState<number | null>(null);
+  const [hydrated, setHydrated] = useState(false);
+
+  useEffect(() => {
+    setHydrated(true);
+  }, []);
+
+  useEffect(() => {
+    async function fetchUserCount() {
+      try {
+        const res = await fetch('/api/waitlist', {
+          method: 'GET',
+          headers: { 'Content-Type': 'application/json' },
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+          setUserCount(13 + data.count); // Add 13 to the user count
+        } else {
+          console.error('Failed to fetch user count:', data.error);
+        }
+      } catch (error) {
+        console.error('Error fetching user count:', error);
+      }
+    }
+
+    fetchUserCount();
+  }, []);
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
@@ -26,30 +55,38 @@ export default function WaitlistForm () {
     }
   }
 
-    return (
-        <form onSubmit={handleSubmit} className="flex flex-col items-center text-center min-w-sm pt-20 p-4 relative z-10">
-        <h1 className="text-3xl font-bold mb-4 object-center text-gray-800">Join the Waitlist</h1>
-        <div className="flex flex-col gap-4 w-full">
-          <input
-            type="email"
-            placeholder="Your email"
-            className="border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/90 backdrop-blur-sm"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-          <button
-            type="submit"
-            className="bg-[#66afb5] text-white py-3 rounded-lg hover:bg-[#5a9ea3] transition-colors duration-200 font-medium"
-          >
-            Join
-          </button>
-        </div>
-        {message && (
-          <p className="mt-4 text-green-600 font-medium bg-green-50 p-3 rounded-lg">
-            {message}
-          </p>
-        )}
-      </form>
-    )
+  return (
+    <form onSubmit={handleSubmit} className="flex flex-col items-center text-center min-w-sm pt-20 p-4 relative z-10">
+      <h1 className="text-3xl font-bold mb-2 text-gray-800 text-center">
+        Join the Waitlist
+      </h1>
+      {/* Conditionally render the user count */}
+      {userCount !== null && (
+        <p className="text-sm text-gray-800 text-center mb-4">
+          {`${userCount} already joined`}
+        </p>
+      )}
+      <div className="flex flex-col gap-4 w-full">
+        <input
+          type="email"
+          placeholder="Your email"
+          className="border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/90 backdrop-blur-sm"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <button
+          type="submit"
+          className="bg-[#66afb5] text-white py-3 rounded-lg hover:bg-[#5a9ea3] transition-colors duration-200 font-medium"
+        >
+          Join
+        </button>
+      </div>
+      {message && (
+        <p className="mt-4 text-green-600 font-medium bg-green-50 p-3 rounded-lg">
+          {message}
+        </p>
+      )}
+    </form>
+  );
 }
