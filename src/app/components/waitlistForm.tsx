@@ -10,7 +10,7 @@ export default function WaitlistForm () {
     e.preventDefault();
     setMessage('');
 
-    const res = await fetch('/api/grocery_app_waitlist', {
+    const res = await fetch('/api/waitlist', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email }),

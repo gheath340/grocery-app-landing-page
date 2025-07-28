@@ -13,18 +13,15 @@ export default async function handler(
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { email, name } = req.body;
+  const { email } = req.body;
 
   if (typeof email !== 'string' || !email.includes('@')) {
     return res.status(400).json({ error: 'Invalid email' });
   }
 
-  // Name can be optional, default to empty string if missing or not string
-  const safeName = typeof name === 'string' ? name : '';
-
   const { error } = await supabase
-    .from('waitlist')
-    .insert([{ email, name: safeName }]);
+    .from('grocery_app_waitlist')
+    .insert([{ email }]);
 
   if (error) {
     return res.status(400).json({ error: error.message });
