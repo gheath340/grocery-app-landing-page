@@ -56,16 +56,11 @@ export default function WaitlistForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col items-center text-center min-w-sm pt-20 p-4 relative z-10">
-      <p className="text-2xl font-bold mb-2 text-gray-900 text-center">
+    <form onSubmit={handleSubmit} className="flex flex-col items-center text-center min-w-sm pt-15 p-4 relative z-10">
+      <p className="text-2xl font-bold text-gray-900 text-center">
         Join the Waitlist
       </p>
-      {/* Conditionally render the user count */}
-      {userCount !== null && (
-        <p className="text-sm text-gray-700 text-center mb-4">
-          {`${userCount} already joined`}
-        </p>
-      )}
+
       <div className="flex flex-col gap-4 w-full items-center">
         <input
           type="email"
@@ -77,7 +72,7 @@ export default function WaitlistForm() {
         />
         <button
           type="submit"
-          className="bg-[#66afb5] text-white py-3 px-6 w-1/3 rounded-lg hover:bg-[#5a9ea3] transition-colors duration-200 font-medium"
+          className="bg-[#66afb5] text-white text-xl py-3 px-6 w-1/3 rounded-lg hover:bg-[#5a9ea3] transition-colors duration-200"
         >
           Join
         </button>

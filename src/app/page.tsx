@@ -12,7 +12,7 @@ export default function Home() {
       <section className="relative w-full pt-20 lg:pt-32">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-10 flex flex-col lg:flex-row items-center lg:items-start lg:justify-between gap-12">
           {/* LEFT COLUMN – Hero Text and Waitlist Form */}
-          <div className="w-full lg:w-[570px] lg:pt-8 flex flex-col items-center lg:items-start text-center lg:text-left">
+          <div className="w-full lg:w-[570px] lg:pt-12 flex flex-col items-center lg:items-start text-center lg:text-left">
             
             {/* Hero Text */}
             <div className="">
