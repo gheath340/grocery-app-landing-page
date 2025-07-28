@@ -9,11 +9,13 @@ export default function Home() {
   return (
     // style={{ backgroundImage: "url('/bg1.jpg')" }}
      <div className="min-h-screen bg-white bg-cover bg-center bg-no-repeat">
-      <section className="relative w-full">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-25 flex flex-col lg:flex-row items-center lg:justify-between">
-          {/* LEFT TEXT SECTION */}
-          <div className="flex-1 max-w-2xl text-center lg:text-left flex items-center">
-            <div>
+      <section className="relative w-full pt-20 lg:pt-32">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-10 flex flex-col lg:flex-row items-center lg:items-start lg:justify-between gap-12">
+          {/* LEFT COLUMN – Hero Text and Waitlist Form */}
+          <div className="w-full lg:w-[520px] flex flex-col items-center lg:items-start text-center lg:text-left">
+            
+            {/* Hero Text */}
+            <div className="mb-8">
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
                 Meals made simple. <br />
                 <span className="text-[#66afb5]">Savings made easy.</span>
@@ -22,15 +24,24 @@ export default function Home() {
                 Eat better, spend smarter, and stay on track. Without the hassle.
               </p>
             </div>
+
+            {/* App mockup image – shown below hero on mobile, floats right on desktop */}
+            <div className="order-2 lg:order-2 w-full flex justify-center mt-6 lg:hidden">
+              <Image src="/app-mockup.jpg" alt="App Mockup" width={200} height={500} />
+            </div>
+
+            {/* Waitlist Form */}
+            <div className="order-3 lg:order-1 w-full flex justify-center lg:justify-start">
+              <WaitlistForm />
+            </div>
           </div>
 
-          {/* RIGHT IMAGE SECTION */}
-          <div className="flex-1 mt-10 lg:mt-0 lg:ml-1 flex justify-center max-w-sm">
-            <Image src="/app-mockup.jpg" alt={''} width={250} height={500} />
+          {/* RIGHT COLUMN – App image only shown on desktop */}
+          <div className="hidden lg:flex flex-1 justify-center max-w-sm order-2">
+            <Image src="/app-mockup.jpg" alt="App Mockup" width={250} height={500} />
           </div>
         </div>
       </section>
-      <WaitlistForm />
     </div>
   );
 };
