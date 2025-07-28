@@ -5,36 +5,8 @@ import { useState, FormEvent, useEffect } from 'react';
 export default function WaitlistForm() {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
-  const [userCount, setUserCount] = useState<number | null>(null);
-  const [hydrated, setHydrated] = useState(false);
-
-  useEffect(() => {
-    setHydrated(true);
-  }, []);
-
-  useEffect(() => {
-    async function fetchUserCount() {
-      try {
-        const res = await fetch('/api/waitlist', {
-          method: 'GET',
-          headers: { 'Content-Type': 'application/json' },
-        });
-
-        const data = await res.json();
-
-        if (res.ok) {
-          setUserCount(13 + data.count); // Add 13 to the user count
-        } else {
-          console.error('Failed to fetch user count:', data.error);
-        }
-      } catch (error) {
-        console.error('Error fetching user count:', error);
-      }
-    }
-
-    fetchUserCount();
-  }, []);
-
+  
+  
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     setMessage('');
