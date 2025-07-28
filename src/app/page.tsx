@@ -7,7 +7,6 @@ import Image from 'next/image';
 export default function Home() {
 
   return (
-    // style={{ backgroundImage: "url('/bg1.jpg')" }}
      <div className="min-h-screen bg-white bg-cover bg-center bg-no-repeat">
       <section className="relative w-full pt-20 lg:pt-32">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-10 flex flex-col lg:flex-row items-center lg:items-start lg:justify-between gap-12">
