@@ -15,7 +15,7 @@ export default function Home() {
           <div className="w-full lg:w-[570px] lg:pt-8 flex flex-col items-center lg:items-start text-center lg:text-left">
             
             {/* Hero Text */}
-            <div className="mb-8">
+            <div className="">
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
                 Meals made simple. <br />
                 <span className="text-[#66afb5]">Savings made easy.</span>
@@ -31,7 +31,7 @@ export default function Home() {
             </div>
 
             {/* Waitlist Form */}
-            <div className="order-3 lg:order-1 w-full flex justify-center lg:pr-8">
+            <div className="order-3 lg:order-1 w-full flex lg:pr-8">
               <WaitlistForm />
             </div>
           </div>
