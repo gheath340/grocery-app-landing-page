@@ -16,6 +16,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Nubu",
   description: "Join the waitlist for Nubu.",
+  icons: {
+    icon: "/NubuLogo.ico",
+  },
 };
 
 export default function RootLayout({
