@@ -86,7 +86,7 @@ export default function Navbar() {
           <div className="hidden md:flex space-x-6 items-center">
             {/* Conditionally render the user count */}
             {userCount !== null && (
-              <p className="text-sm text-gray-700 text-center mb-2">
+              <p className="text-md text-gray-900 text-center">
                 {`${userCount} already joined`}
               </p>
             )}

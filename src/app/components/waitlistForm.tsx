@@ -6,7 +6,7 @@ export default function WaitlistForm() {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   
-  
+
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     setMessage('');
@@ -29,7 +29,7 @@ export default function WaitlistForm() {
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col items-center text-center min-w-sm pt-15 p-4 relative z-10">
-      <p className="text-2xl font-bold text-gray-900 text-center">
+      <p className="text-2xl font-bold text-gray-900 text-center pb-3">
         Join the Waitlist
       </p>
 
@@ -44,7 +44,7 @@ export default function WaitlistForm() {
         />
         <button
           type="submit"
-          className="bg-[#66afb5] text-white text-xl py-3 px-6 w-1/3 rounded-lg hover:bg-[#5a9ea3] transition-colors duration-200"
+          className="bg-[#66afb5] text-white text-xl py-2 w-1/3 rounded-lg hover:bg-[#5a9ea3] transition-colors duration-200"
         >
           Join
         </button>

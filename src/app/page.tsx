@@ -21,7 +21,7 @@ export default function Home() {
                 <span className="text-[#66afb5]">Savings made easy.</span>
               </h1>
               <p className="mt-4 text-lg md:text-xl text-gray-700 font-medium">
-                Eat better, spend smarter, and stay on track. Without the hassle.
+                Eat better, spend smarter, and stay on track without the hassle.
               </p>
             </div>
 
@@ -31,7 +31,7 @@ export default function Home() {
             </div>
 
             {/* Waitlist Form */}
-            <div className="order-3 lg:order-1 w-full flex lg:pr-8">
+            <div className="order-3 lg:order-1 w-full flex justify-center lg:pr-8">
               <WaitlistForm />
             </div>
           </div>
