@@ -5,38 +5,8 @@ import Image from 'next/image';
 import { useState, useEffect } from 'react';
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [userCount, setUserCount] = useState<number | null>(null);
-  const [hydrated, setHydrated] = useState(false);
-
-  useEffect(() => {
-    setHydrated(true);
-  }, []);
-
-  useEffect(() => {
-    async function fetchUserCount() {
-      try {
-        const res = await fetch('/api/waitlist', {
-          method: 'GET',
-          headers: { 'Content-Type': 'application/json' },
-        });
-
-        const data = await res.json();
-
-        if (res.ok) {
-          setUserCount(13 + data.count); // Add 13 to the user count
-        } else {
-          console.error('Failed to fetch user count:', data.error);
-        }
-      } catch (error) {
-        console.error('Error fetching user count:', error);
-      }
-    }
-
-    fetchUserCount();
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,7 +15,6 @@ export default function Navbar() {
       if (currentScrollY > lastScrollY && currentScrollY > 50) {
         // Scrolling down & past top
         setShowNavbar(false);
-        setIsOpen(false); // Close the menu when navbar disappears
       } else {
         // Scrolling up
         setShowNavbar(true);
@@ -83,23 +52,16 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Nav Links */}
-          <div className="hidden md:flex space-x-6 items-center">
-            {/* Conditionally render the user count */}
-            {userCount !== null && (
-              <p className="text-md text-gray-900 text-center">
-                {`${userCount} already joined`}
-              </p>
-            )}
-          </div>
-
-          {/* Mobile Join Button */}
-          <div className="md:hidden">
-            <Link
-              href="#waitlist"
-              className="bg-[#66afb5] text-white px-4 py-2 rounded-lg shadow-md hover:bg-[#5a9ea3] transition-all duration-300"
-            >
-              Join waitlist
-            </Link>
+          <div className="flex space-x-6 items-center">
+            <a href="#budget" className="text-md text-gray-900 hover:text-[#66afb5]">
+              Budget
+            </a>
+            <a href="#recipes" className="text-md text-gray-900 hover:text-[#66afb5]">
+              Recipes
+            </a>
+            <a href="#tracking" className="text-md text-gray-900 hover:text-[#66afb5]">
+              Tracking
+            </a>
           </div>
         </div>
       </div>

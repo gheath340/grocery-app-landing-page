@@ -28,7 +28,7 @@ export default function WaitlistForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col items-center text-center min-w-sm pt-15 p-4 relative z-10">
+    <form onSubmit={handleSubmit} className="flex flex-col items-center text-center min-w-sm lg:pt-15 p-4 relative z-10">
       <p className="text-2xl font-bold text-gray-900 text-center pb-3">
         Join the Waitlist
       </p>
