@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, FormEvent, useEffect } from 'react';
+import { useState, FormEvent } from 'react';
 
 export default function WaitlistForm() {
   const [email, setEmail] = useState('');

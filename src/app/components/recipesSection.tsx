@@ -17,7 +17,7 @@ export default function RecipesSection() {
                     Affordable meals that keep you and your wallet happy.
                 </p>
                 <ul className="mt-4 space-y-2 list-disc list-inside marker:text-gray-900 text-gray-900 text-base md:text-lg">
-                            <li>Cook without overthinking, simple meals you'll actually enjoy</li>
+                            <li>Cook without overthinking, simple meals you&apos;ll actually enjoy</li>
                             <li>Discover simple, healthly recipes aligned with your goals</li>
                             <li>Skip the planning. Just pick, shop, and cook</li>
                 </ul>
